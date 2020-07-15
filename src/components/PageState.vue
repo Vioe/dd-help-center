@@ -1,14 +1,17 @@
 <template>
   <div class="state-wrapper">
     <div class="state-content-loading" v-if="state === 'loading'">
-      <div class="page-tip-container page-tip-container-loading">
+      <div
+        class="page-tip-container page-tip-container-loading"
+        :style="'padding-top:'+ loadingTop + 'vw'"
+      >
         <div class="loader"></div>
       </div>
     </div>
 
     <!-- 没数据 -->
     <div v-else-if="state === 'nodata'">
-      <div class="page-tip-container">
+      <div class="page-tip-container" :style="'padding-top:'+nodataTop+'vw;'">
         <div class="page-nodata-image">
           <img class="image" src="@/assets/data_blank_default.png" />
         </div>
@@ -30,7 +33,11 @@
 
     <!-- 页面出错提示模板 -->
     <div v-else-if="state === 'error'">
-      <div class="page-tip-container" @click="_onPageErrorHandler">
+      <div
+        class="page-tip-container"
+        @click="_onPageErrorHandler"
+        :style="'padding-top:'+errorTop+'vw;'"
+      >
         <div a:else class="page-error-image">
           <img src="@/assets/error_default.png" />
         </div>
@@ -42,7 +49,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -56,30 +62,30 @@ export default {
       default: ''
     },
     // //定位 margin-top位置
-    // loadingTop: {
-    //   type: Number,
-    //   default: 60
-    // },
-    // loadingBottom: {
-    //   type: Number,
-    //   default: 0
-    // },
-    // errorTop: {
-    //   type: Number,
-    //   default: 20
-    // },
-    // errorBottom: {
-    //   type: Number,
-    //   default: 0
-    // },
-    // nodataTop: {
-    //   type: Number,
-    //   default: 30
-    // },
-    // nodataBottom: {
-    //   type: Number,
-    //   default: 0
-    // },
+    loadingTop: {
+      type: Number,
+      default: 60
+    },
+    loadingBottom: {
+      type: Number,
+      default: 0
+    },
+    errorTop: {
+      type: Number,
+      default: 30
+    },
+    errorBottom: {
+      type: Number,
+      default: 0
+    },
+    nodataTop: {
+      type: Number,
+      default: 30
+    },
+    nodataBottom: {
+      type: Number,
+      default: 0
+    },
     //标题
     title: {
       type: String,

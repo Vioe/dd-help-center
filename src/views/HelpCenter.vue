@@ -226,7 +226,7 @@ export default {
     * 分享
     */
     share() {
-      const shareTitle = this.dealContent.title || '在电脑上如何使用幼师贝壳？';
+      const shareTitle = this.pageList.title || '在电脑上如何使用幼师贝壳？';
       const shareContent = '产品使用遇到问题？进入帮助中心看看吧，你想要的答案这里都有~';
       if (this.options.uaType == 'web-view') {
         dd.postMessage({ actionType: 'share', shareInfo: { shareTitle, shareContent } });

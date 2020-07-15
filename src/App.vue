@@ -17,9 +17,9 @@ export default {
 
 <style lang="less" scoped>
 #app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   // width: 100vw;
   min-height: 100vh;
   // overflow: hidden;
