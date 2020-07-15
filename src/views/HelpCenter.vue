@@ -53,7 +53,7 @@
       >
         <div class="footer-tab" :class="{ 'security-padding-bottom' : isIphoneX }">
           <div class="footer-left">
-            <div v-if="ddApp" class="share-icon" @click="share">
+            <div v-if="options.uaType == 'web-view'" class="share-icon" @click="share">
               <img class="icon-img" src="../assets/share_icon.svg" alt />
               <div class="icon-text">分享</div>
             </div>
@@ -62,7 +62,7 @@
           <div
             class="try-btn"
             @click="goServiceOrHome"
-          >{{options.openType == 'dd' ? '问题没有解决？点我联系客服' : '去试一试'}}</div>
+          >{{options.uaType == 'web-view' ? '问题没有解决？点我联系客服' : '去试一试'}}</div>
         </div>
       </div>
     </div>
@@ -217,7 +217,8 @@ export default {
       const href = window.location.href;
       this.options = {
         menuId: Util.getUrlParameterByName('menuId', href),
-        corpId: Util.getUrlParameterByName('corpId', href)
+        corpId: Util.getUrlParameterByName('corpId', href) || '',
+        uaType: Util.getUrlParameterByName('uaType', href) || ''
       }
       this.requestPageList();
     },
@@ -227,7 +228,7 @@ export default {
     share() {
       const shareTitle = this.dealContent.title || '在电脑上如何使用幼师贝壳？';
       const shareContent = '产品使用遇到问题？进入帮助中心看看吧，你想要的答案这里都有~';
-      if (this.ddApp) {
+      if (this.options.uaType == 'web-view') {
         dd.postMessage({ actionType: 'share', shareInfo: { shareTitle, shareContent } });
       } else {
         biz.util.share({
@@ -249,7 +250,7 @@ export default {
      * 去首页或联系客服
      */
     goServiceOrHome() {
-      if (this.ddApp) {
+      if (this.options.uaType == 'web-view') {
         dd.postMessage({ actionType: 'customerService' });
       } else {
         // 跳转到小程序首页
