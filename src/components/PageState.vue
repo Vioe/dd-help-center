@@ -10,7 +10,7 @@
     <div v-else-if="state === 'nodata'">
       <div class="page-tip-container">
         <div class="page-nodata-image">
-          <img class="image" src="@/assets/default_data_blank.png" />
+          <img class="image" src="@/assets/data_blank_default.png" />
         </div>
         <div class="page-tip page-title">
           <div v-if="keyword.length">
@@ -32,7 +32,7 @@
     <div v-else-if="state === 'error'">
       <div class="page-tip-container" @click="_onPageErrorHandler">
         <div a:else class="page-error-image">
-          <img src="@/assets/default_error.png" />
+          <img src="@/assets/error_default.png" />
         </div>
         <div class="page-tip page-title">
           <p class="text">{{ title }}</p>
@@ -130,7 +130,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
 }
 
 .page-tip-container-loading {
@@ -199,7 +198,6 @@ export default {
 .page-error-image {
   position: relative;
   width: 100%;
-  padding-top: 56px;
   display: flex;
   justify-content: center;
 }

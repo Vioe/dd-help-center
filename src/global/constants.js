@@ -7,9 +7,9 @@ let imgUrl = 'https://apikindergartending.babybus.com'; //正式环境的地址
 
 rootDomain = isDev ? '/api' : rootDomain;
 
-// const webViewUrl = `${rootDomain}/index.html`; // 内测
+const webViewUrl = `${rootDomain}/index.html`; // 内测
 
-const webViewUrl = `${rootDomain}/s/ea`; // 外测 & 正式
+// const webViewUrl = `${rootDomain}`; // 外测 & 正式
 
 const logoIcon = `${imgUrl}/Content/images/ElectronicAlbum/logo.png`; // 外测 & 正式
 

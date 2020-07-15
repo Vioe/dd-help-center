@@ -9,7 +9,7 @@ export class HelpCenterBiz {
    * 获取影集信息
    */
   static getHelpInfo(params = {}) {
-    return axios.post(`${rootDomain}/DingTalkSupportPc/GetSupportContent`,params).then(
+    return axios.post(`${rootDomain}/DingTalkSupportPc/GetSupportContent`, params).then(
       res => {
         return Promise.resolve(res);
       },
