@@ -220,7 +220,7 @@ export default {
         uaType: Util.getUrlParameterByName('uaType', href) || '',
         barTitle: Util.getUrlParameterByName('barTitle', href) || ''
       }
-      window.document.title =  this.options.barTitle;
+      window.document.title = this.options.barTitle;
       this.requestPageList();
     },
     /**
@@ -235,7 +235,7 @@ export default {
         dd.postMessage({ actionType: 'share', shareInfo: { shareTitle, shareContent, iosShareImage, androidShareImage } });
       } else {
         const href = window.location.href;
-        const curDomainUrl = href.indexOf('?')> -1 ? href.split('?')[0] : webViewUrl;
+        const curDomainUrl = href.indexOf('?') > -1 ? href.split('?')[0] : webViewUrl;
         biz.util.share({
           title: shareTitle,
           content: shareContent,
@@ -384,14 +384,14 @@ export default {
 
 .icon-text {
   padding-top: 4px;
-  font-size: 14px;
+  font-size: 10px;
   color: rgba(25, 31, 37, 0.72);
 }
 
 .share-btn {
   font-weight: 500;
   color: rgba(25, 31, 37, 1);
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
   width: 132px;
   height: 42px;
@@ -411,6 +411,7 @@ export default {
   text-align: center;
   color: rgba(255, 255, 255, 1);
   font-size: 16px;
+  font-weight: 500;
 }
 
 .video-container {
