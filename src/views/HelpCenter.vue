@@ -81,7 +81,7 @@ import PageState from '@/components/PageState';
 import { HelpCenterBiz } from '@/http/api/HelpCenterBiz';
 import Util from '@/utils/util';
 import { biz } from 'dingtalk-jsapi';
-import { webViewUrl, shareIcon, logoIcon } from '@/global/constants';
+import { webViewUrl, shareIcon, logoIcon, shareImg } from '@/global/constants';
 import { pageStateInitData, pageState } from '@/global/pageState'
 let pageInfoDefault = {
   list: [],
@@ -213,13 +213,14 @@ export default {
      * 设备环境为h5
      */
     deviceEnvInH5() {
-      window.document.title = '帮助中心';
       const href = window.location.href;
       this.options = {
         menuId: Util.getUrlParameterByName('menuId', href),
         corpId: Util.getUrlParameterByName('corpId', href) || '',
-        uaType: Util.getUrlParameterByName('uaType', href) || ''
+        uaType: Util.getUrlParameterByName('uaType', href) || '',
+        barTitle: Util.getUrlParameterByName('barTitle', href) || ''
       }
+      window.document.title =  this.options.barTitle;
       this.requestPageList();
     },
     /**
@@ -228,13 +229,17 @@ export default {
     share() {
       const shareTitle = this.pageList.title || '在电脑上如何使用幼师贝壳？';
       const shareContent = '产品使用遇到问题？进入帮助中心看看吧，你想要的答案这里都有~';
+      const iosShareImage = shareImg || '';
+      const androidShareImage = shareIcon || '';
       if (this.options.uaType == 'web-view') {
-        dd.postMessage({ actionType: 'share', shareInfo: { shareTitle, shareContent } });
+        dd.postMessage({ actionType: 'share', shareInfo: { shareTitle, shareContent, iosShareImage, androidShareImage } });
       } else {
+        const href = window.location.href;
+        const curDomainUrl = href.indexOf('?')> -1 ? href.split('?')[0] : webViewUrl;
         biz.util.share({
           title: shareTitle,
           content: shareContent,
-          url: `${webViewUrl}?menuId=${this.options.menuId}`,
+          url: `${curDomainUrl}?menuId=${this.options.menuId}&uaType=h5&barTitle=${this.options.barTitle}`,
           image: shareIcon,
           onlyShare: true,
           onSuccess: () => {
