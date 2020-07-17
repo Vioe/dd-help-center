@@ -239,7 +239,7 @@ export default {
         biz.util.share({
           title: shareTitle,
           content: shareContent,
-          url: `${curDomainUrl}?menuId=${this.options.menuId}&uaType=h5&barTitle=${this.options.barTitle}`,
+          url: `${curDomainUrl}?menuId=${this.options.menuId}&uaType=h5&barTitle=${this.options.barTitle}&corpId=${this.options.corpId}`,
           image: shareIcon,
           onlyShare: true,
           onSuccess: () => {
