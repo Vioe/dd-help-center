@@ -110,6 +110,7 @@ export default {
     showText: ''
   }),
   created() {
+    console.log('11111111', window.location.href);
     this.initPage();
   },
   destroyed() {
@@ -231,15 +232,17 @@ export default {
       const shareContent = '产品使用遇到问题？进入帮助中心看看吧，你想要的答案这里都有~';
       const iosShareImage = shareImg || '';
       const androidShareImage = shareIcon || '';
+      console.log('this.options: ',this.options);
       if (this.options.uaType == 'web-view') {
         dd.postMessage({ actionType: 'share', shareInfo: { shareTitle, shareContent, iosShareImage, androidShareImage } });
       } else {
+        console.log('跳转到小程序的地址：', `${curDomainUrl}?menuId=${this.options.menuId}&uaType=h5&barTitle=${this.options.barTitle}&corpId=${this.options.corpId}`);
         const href = window.location.href;
         const curDomainUrl = href.indexOf('?') > -1 ? href.split('?')[0] : webViewUrl;
         biz.util.share({
           title: shareTitle,
           content: shareContent,
-          url: `${curDomainUrl}?menuId=${this.options.menuId}&uaType=h5&barTitle=${this.options.barTitle}&corpId=${this.options.corpId}`,
+          url: encodeURI(`${curDomainUrl}?menuId=${this.options.menuId}&uaType=h5&barTitle=${this.options.barTitle}&corpId=${this.options.corpId}`),
           image: shareIcon,
           onlyShare: true,
           onSuccess: () => {
