@@ -1,8 +1,8 @@
 const isDev = process.env.NODE_ENV === 'development' || false;
 
 
-// let rootDomain = 'http://dingtalk.babybus.com';//正式环境地址
-let rootDomain = 'http://test.dingtalk.babybus.com';//内测环境地址 
+let rootDomain = 'http://dingtalk.babybus.com';//正式环境地址
+// let rootDomain = 'http://test.dingtalk.babybus.com';//内测环境地址 
 
 rootDomain = isDev ? '/api' : rootDomain;
 

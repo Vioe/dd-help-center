@@ -9,8 +9,8 @@ module.exports = {
     // open: true,
     proxy: {
       '/api': {
-        // target: 'http://apikindergartending.babybus.com',//正式环境地址
-        target: ' http://test.dingtalk.babybus.com',//内测环境地址 
+        target: 'http://dingtalk.babybus.com',//正式环境地址
+        // target: ' http://test.dingtalk.babybus.com',//内测环境地址 
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
