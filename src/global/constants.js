@@ -12,7 +12,7 @@ const logoIcon = `http://dingfile.babybus.com/DingFile/DingBusFile/20200716/de37
 
 const shareIcon = `http://dingfile.babybus.com/DingFile/DingBusFile/20200716/e9e4df88b6e64602b26f5c74a0cf45fc.png`; // 外测 & 正式
 
-const shareImg = 'http://dingfile.babybus.com/DingFile/DingBusFile/20200716/146cd0196cbb48c28a056e6540ef6ce7.png'; // 外测 & 正式 //todo 还没给图
+const shareImg = 'http://dingfile.babybus.com/DingFile/DingBusFile/20200916/266cdc650bb04896aadf089a4f3358e3.png'; // 外测 & 正式 
 
 export {
   rootDomain,

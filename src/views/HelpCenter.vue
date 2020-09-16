@@ -62,7 +62,7 @@
           <div
             class="try-btn"
             @click="goServiceOrHome"
-          >{{options.uaType == 'web-view' ? '问题没有解决？点我联系客服' : '去试一试'}}</div>
+          >{{ options.uaType == 'web-view' ? '问题没有解决？点我联系客服' : '去试一试' }}</div>
         </div>
       </div>
     </div>
